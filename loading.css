@@ -1,4 +1,18 @@
+:root {
+  --milk: #f5eee6;        /* kem sữa */
+  --latte: #e6d3b1;       /* cafe sữa */
+  --coffee: #b08968;     /* cafe nhạt */
+  --espresso: #7f5539;   /* cafe đậm */
+  --dark: #3e2723;       /* nâu chữ */
+  --glass: rgba(255,255,255,0.45);
+}
+
 h1 {
+  text-align: center;   /* căn giữa ngang */
+  margin: 20px 0;       /* cách viền trên / dưới */
+   animation: colorChange 2s infinite linear;
+}
+h2 {
   text-align: center;   /* căn giữa ngang */
   margin: 20px 0;       /* cách viền trên / dưới */
    animation: colorChange 2s infinite linear;
@@ -7,6 +21,43 @@ body, html {
   margin: 0;
   height: 100%;
   position: relative;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    120deg,
+    var(--milk),
+    var(--latte),
+    var(--coffee)
+  );
+}
+.icon-wrap {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.icon-wrap img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  animation: bounce 1.5s ease-in-out infinite;
+}
+.icon-wrap {
+  display: flex;
+  flex-direction: column; /* logo trên, chữ dưới */
+  align-items: center;    /* căn giữa */
+  gap: 8px;               /* khoảng cách logo - chữ */
+}
+.icon-wrap span {
+  font-size: 30px;
+  font-weight: 500;
+}
+/* hiệu ứng nhún nhẹ */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .loader {
@@ -24,8 +75,12 @@ body, html {
     display: inline-block;
     transform-origin: 0 70%;
      animation: 
-        flip 5s linear infinite,       /* xoay */
+        flip 4.8s linear infinite,       /* xoay */
         colorChange 3s infinite linear; /* đổi màu */
+}
+.loader.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 /* Delay từng chữ */
 .loader > span:nth-child(1) { animation-delay: 0s, 1s; }
@@ -46,3 +101,82 @@ body, html {
   33%  { transform: rotateZ(360deg); }
   100% { transform: rotateZ(360deg); }
 }
+/* mặc định desktop: ẩn br */
+.mobile-br {
+  display: none;
+}
+
+/* mobile < 700px: hiện br để xuống dòng */
+@media (max-width: 700px) {
+  .mobile-br {
+    display: inline;
+  }
+
+  h1 {
+    font-size: clamp(18px, 4vw, 24px); /* điều chỉnh chữ cho vừa mobile */
+  }
+}
+/* ===== SLOGAN KHUNG CẦU VỒNG ===== */
+.icon-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.slogan {
+  position: relative;
+  padding: 8px 18px;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: white;
+
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+
+  overflow: hidden;
+}
+
+/* viền cầu vồng */
+.slogan::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    45deg,
+    red,
+    orange,
+    yellow,
+    lime,
+    cyan,
+    blue,
+    violet,
+    red
+  );
+  background-size: 400% 400%;
+  animation: rainbow 3s linear infinite;
+
+  z-index: -1;
+}
+
+/* lớp che trong */
+.slogan::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+/* animation cầu vồng */
+@keyframes rainbow {
+  0%   { background-position:   0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+

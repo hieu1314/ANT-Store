@@ -1,27 +1,85 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANT Store</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu | ANT Store</title>
+  <link rel="icon" href="icon.png" type="image/png">
 
-    <link rel="stylesheet" href="style.css">
-
-<script type="module" src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gioithieu.css">
+  <script type="module" src="script.js"></script>
 </head>
 
 <body>
-  <!-- Menu -->
-  <nav class="menu">
-    <ul>
-    <li><a href="index.html">Trang chủ</a></li>
-    <li><a href="sp.html">Sản phẩm</a></li>
-    <li><a href="gioithieu.html">Giới thiệu</a></li>
-    <li><a href="lienhe.html">Liên hệ</a></li>
-      <span class="indicator"></span>
-    </ul>
-  </nav>
 
+<nav class="menu">
+  <ul>
+    <li><a href="trangchu.html">Trang chủ</a></li>
+    <li><a href="sp.html">Sản phẩm</a></li>
+    <li><a href="gioithieu.html" class="active">Giới thiệu</a></li>
+    <li><a href="lienhe.html">Liên hệ</a></li>
+    <span class="indicator"></span>
+  </ul>
+</nav>
+
+<main class="about">
+
+  <section class="about-section">
+    <h1>Giới thiệu ANT Store</h1>
+    <p>
+      <strong>ANT Store</strong> chuyên cung cấp các sản phẩm nông sản và thực phẩm
+      được chọn lọc kỹ lưỡng từ những vùng nguyên liệu uy tín.
+    </p>
+    <p>
+      Chúng tôi cam kết mang đến sản phẩm <b>an toàn – chất lượng – nguồn gốc rõ ràng</b>,
+      phù hợp cho người tiêu dùng quan tâm đến sức khỏe và giá trị lâu dài.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Giá trị cốt lõi</h2>
+    <ul>
+      <li>Chất lượng đặt lên hàng đầu</li>
+      <li>Minh bạch nguồn gốc sản phẩm</li>
+      <li>Đầy đủ giấy chứng nhận hợp lệ</li>
+      <li>Hợp tác lâu dài – phát triển bền vững</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h2>Giấy chứng nhận sản phẩm</h2>
+    <p class="desc">
+      Các sản phẩm của ANT Store đều có giấy chứng nhận an toàn và chất lượng
+      theo quy định hiện hành.
+    </p>
+
+<div class="cert-list">
+
+  <div class="cert-item">
+    <!-- CLICK ẢNH → MỞ PNG -->
+    <a href="certs/daumocchau.jpg" target="_blank" class="img-link">
+      <img src="certs/daumocchau.jpg" alt="Chứng nhận VSATTP">
+    </a>
+
+    <!-- CLICK CHỮ → MỞ PDF -->
+    <a href="certs/daumocchau.pdf" target="_blank" class="pdf-link">
+      📄 Xem chứng nhận VSATTP (PDF)
+    </a>
+  </div>
+
+</div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>
+    © 2026 <strong>ANT Store</strong> — All rights reserved.
+    <span>| Designed by NHH</span>
+  </p>
+</footer>
 
 </body>
 </html>

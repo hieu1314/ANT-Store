@@ -1,0 +1,234 @@
+/* ==============================
+   FLOATING CART BUTTON
+============================== */
+.cart-float {
+  position: fixed;
+  top: 80px;               /* dưới menu */
+  right: 20px;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;     /* 👈 TRÒN 100% */
+
+  background: #ff4757;
+  color: white;
+
+  display: flex;          /* 👈 canh giữa emoji */
+  align-items: center;
+  justify-content: center;
+
+  font-size: 26px;        /* 👈 emoji to đẹp */
+  cursor: pointer;
+  z-index: 99999;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: white;
+  color: #ff4757;
+  font-size: 12px;
+  font-weight: bold;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+.cart-toast {
+  position: absolute;
+  bottom: -32px;
+  background: #000;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: .3s;
+  pointer-events: none;
+}
+
+.cart-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==============================
+   CART POPUP
+============================== */
+.cart-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99998;
+}
+
+.cart-popup.active {
+  display: flex;
+}
+
+.cart-box {
+  background: #111;
+  color: white;
+  width: 88%;
+  max-width: 360px;   /* 👈 nhỏ hơn */
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+  text-align: center; /* 👈 canh giữa toàn bộ */
+}
+
+.cart-box h3 {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* ITEM */
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto; /* 👈 trái nội dung – phải giá */
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.15);
+}
+
+.cart-item span {
+  text-align: left;       /* 👈 canh trái toàn bộ loại, số lượng */
+  line-height: 1.4;
+}
+
+.cart-item strong {
+  min-width: 90px;        /* 👈 cố định cột giá */
+  text-align: right;      /* 👈 canh phải đẹp */
+  white-space: nowrap;
+}
+
+/* TOTAL */
+.cart-total {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* ACTIONS */
+.cart-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cart-actions button {
+  flex: unset;
+  min-width: 120px;
+  padding: 8px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+.cart-buy {
+  background: #2ecc71;
+}
+
+.cart-clear {
+  background: #ff4d4d;
+}
+
+@keyframes cartPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+.cart-float.pop {
+  animation: cartPop .3s ease;
+}
+.cart-item button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 2px 6px;
+  margin: 0 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cart-item .remove {
+  background: transparent;
+  color: #ff6b6b;
+  margin-left: 6px;
+}
+
+.cart-box input,
+.cart-box textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+}
+/* ==============================
+   CHECKOUT BOX (PRO)
+============================== */
+.checkout-box {
+  max-width: 380px;
+}
+
+.checkout-list {
+  margin: 10px 0;
+  border-top: 1px dashed rgba(255,255,255,0.15);
+  border-bottom: 1px dashed rgba(255,255,255,0.15);
+}
+
+.checkout-item {
+  display: grid;
+  grid-template-columns: 1fr auto; /* 👈 trái co, phải cố định */
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 13px;
+  align-items: center;
+}
+
+.checkout-item .price {
+  min-width: 90px;       /* 👈 CỐ ĐỊNH CỘT PHẢI */
+  text-align: right;     /* 👈 CANH PHẢI TUYỆT ĐỐI */
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.checkout-total {
+  margin: 10px 0;
+  font-size: 15px;
+  text-align: center;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+}
+
+.checkout-form textarea {
+  resize: none;
+  min-height: 60px;
+}
+
+.checkout-form input::placeholder,
+.checkout-form textarea::placeholder {
+  opacity: 0.7;
+}

@@ -4,17 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANT Store</title>
-
+<link rel="icon" href="icon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 
 <script type="module" src="script.js"></script>
+  <style>
+      /* Toàn bộ trang */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* nếu muốn gradient từ style.css, bỏ dòng này */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Menu đã có trong style.css, giữ nguyên */
+
+        /* Container liên hệ */
+        .container-lienhe {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.25);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            margin: 120px auto 60px auto; /* cách menu 120px, cách dưới 60px */
+            overflow: hidden;
+            margin: 60px auto 20px; 
+            /* Căn giữa nội dung */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Tiêu đề */
+     .container-lienhe h1 {
+    color: #e9e50793;
+    margin: 0 0 20px 0; /* khoảng cách dưới 20px */
+}
+
+.container-lienhe h2 {
+    color: #e90808;
+    margin: 30px 0 15px 0; /* khoảng cách trên 30px từ h1, dưới 15px đến map */
+}
+
+        
+        /* Thông tin liên hệ */
+        .container-lienhe p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 18px;
+            color: #fdfdfd;
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container-lienhe p span {
+            margin-right: 10px;
+            font-size: 24px;
+            color: #4CAF50;
+        }
+
+        /* Map container */
+.map-container {
+  width: 100%;
+  height: 500px;           /* 👈 TĂNG chiều cao bản đồ */
+  margin-top: 5px;         /* 👈 sát tiêu đề hơn */
+  border-radius: 16px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(6px);
+}
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+.contact-info {
+  margin-top: 10px;        /* 👈 giảm khoảng cách với phần trên */
+}
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container-lienhe p {
+                font-size: 16px;
+            }
+            .container-lienhe p span {
+                font-size: 20px;
+            }
+              .map-container {
+    height: 320px; /* mobile */
+  }
+            .map-container iframe {
+                height: 300px;
+            }
+        }
+        
+    </style>
 </head>
 
 <body>
   <!-- Menu -->
   <nav class="menu">
     <ul>
-    <li><a href="index.html">Trang chủ</a></li>
+    <li><a href="trangchu.html">Trang chủ</a></li>
     <li><a href="sp.html">Sản phẩm</a></li>
     <li><a href="gioithieu.html">Giới thiệu</a></li>
     <li><a href="lienhe.html">Liên hệ</a></li>
@@ -22,5 +123,31 @@
     </ul>
   </nav>
 
+    <div class="container-lienhe">
+        <h1>Thông Tin Liên Hệ</h1>
+        <p>📞 Điện thoại-Zalo: 0909 886 861</p>
+        <p>📧 Email: nguyenanh778@gmail.com</p>
+        <p>🌐 Website: anhnguyen2526.github.io/ANT-Store</p>
+        <p>📍 Địa chỉ: 83 Đường số 3, P.An Khánh, TP. HCM</p>
+    </div>
+        
+    <div class="contact-info">
+            <h2>Bản Đồ</h2>
+            <div class="map-container">
+                 <iframe
+                    src="https://www.google.com/maps?q=10.795116383136415,106.7364190874434&hl=vi&z=16&output=embed"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+
+            </div>
+        </div>
+
+ <footer class="footer">
+  <p>
+    © 2026 <strong>ANT Store</strong> — All rights reserved.  
+    <span>| Designed by NHH</span>
+  </p>
+</footer>
 </body>
 </html>

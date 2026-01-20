@@ -5,20 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANT Store</title>
 <link rel="icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="trangchu.css">
+<link rel="stylesheet" href="sp.css">
+<link rel="stylesheet" href="cart.css">
 
-<!-- <link rel="stylesheet" href="loading.css"> -->
+<script src="script.js" defer></script>
+<script src="trangchu.js" defer></script>
+<script src="sp.js" defer></script>
+<script src="cart.js" defer></script>
 
-   <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="trangchu.css">
-   <link rel="stylesheet" href="sp.css">
-
-<script type="module" src="script.js"></script>
-<script type="module" src="trangchu.js"></script>
-<script type="module" src="sp.js"></script>
 </head>
 
-<body>
+ <style>
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: bold;
+  color: white;
+  margin-top: -2px;
+  width: 0ch;
+  line-height: 1.2;
+  /* CHỈ CHẠY SAU KHI TẤT CẢ CARD HIỆN */
+  animation:
+    typing 5s steps(40, end) forwards;
+  animation-delay: 3s; /* SAU card cuối */ 
+}
 
+/* Gõ chữ từng ký tự */
+@keyframes typing {
+  from { width: 0ch; }
+  to   { width: 40ch; }
+}
+
+/* Khi gõ xong, con trỏ biến mất */
+.typewriter.done {
+  border-right: none;
+}
+</style>
+
+<body>
+  
   <!-- Menu -->
   <nav class="menu">
     <ul>
@@ -32,9 +62,12 @@
 
     <!-- 3 Card -->
  <div class="container">
-  <h1><span class="music-btn">
+<h1>
+  Sản phẩm tiêu biểu
+  <span class="music-btn">
     <span class="music-icon">🎵</span>
-  </span></h1>
+  </span>
+</h1>
 
 <div class="card-wrapper">
 
@@ -197,6 +230,6 @@
     <span>| Designed by NHH</span>
   </p>
 </footer>
-
 </body>
+
 </html>

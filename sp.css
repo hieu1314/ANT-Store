@@ -1,0 +1,28 @@
+.music-btn {
+  display: inline-flex;
+  margin-left: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.music-icon {
+  display: inline-block;
+  transform-origin: 50% 50%;
+}
+
+/* Khi nhạc chạy */
+.music-btn.music-playing .music-icon {
+  animation: spinMusic 2.5s linear infinite;
+  opacity: 1;
+}
+
+/* Khi pause */
+.music-btn.music-paused .music-icon {
+  animation: none;
+  opacity: 0.5;
+}
+
+@keyframes spinMusic {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

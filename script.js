@@ -11,14 +11,41 @@ typewriters.forEach(el => {
 const items = document.querySelectorAll('.menu ul li');
 const indicator = document.querySelector('.menu .indicator');
 
+// ===== XÁC ĐỊNH ITEM ACTIVE =====
+let activeItem = items[0]; // mặc định Trang chủ
+
+items.forEach(item => {
+  const link = item.querySelector('a');
+  if (link.href === window.location.href) {
+    activeItem = item;
+  }
+});
+
+// ===== DI CHUYỂN INDICATOR =====
 function moveIndicator(el) {
   indicator.style.width = el.offsetWidth + 'px';
   indicator.style.left = el.offsetLeft + 'px';
 }
 
+// ===== GÁN SỰ KIỆN =====
 items.forEach(item => {
-  item.addEventListener('mouseenter', () => moveIndicator(item));
+  // Hover (desktop)
+  item.addEventListener('mouseenter', () => {
+    moveIndicator(item);
+  });
+
+  // Rời chuột → quay về active
+  item.addEventListener('mouseleave', () => {
+    moveIndicator(activeItem);
+  });
+
+  // Touch (mobile)
+  item.addEventListener('touchstart', () => {
+    moveIndicator(item);
+  });
 });
 
-/* mặc định Trang chủ */
-moveIndicator(items[0]);
+// ===== VỊ TRÍ BAN ĐẦU =====
+window.addEventListener('load', () => {
+  moveIndicator(activeItem);
+});

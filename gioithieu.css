@@ -1,0 +1,106 @@
+  /* ===== GIỚI THIỆU – SIMPLE ===== */
+
+  .about {
+    max-width: 1000px;
+    margin: 60px auto 20px; 
+    padding: 0 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .about-section {
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 25px 30px;
+  }
+
+  .about-section h1,
+  .about-section h2 {
+    color: #904aca;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .about-section p {
+    line-height: 1.8;
+    color: rgba(0,0,0,0.85);
+    margin-bottom: 10px;
+  }
+
+  .about-section ul {
+    padding-left: 20px;
+  }
+
+  .about-section ul li {
+    margin: 8px 0;
+    color: rgba(0,0,0,0.8);
+  }
+
+  /* ===== CHỨNG NHẬN ===== */
+
+  .desc {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .cert-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .cert-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .cert-item img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 6px;
+    object-position: top; /* 👈 HIỆN PHẦN ĐẦU ẢNH */
+    cursor: zoom-in;
+  }
+
+  /* LINK PDF */
+  .pdf-link {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 14px;
+    background: #3e2723;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  .pdf-link:hover {
+    background: #5d4037;
+  }
+
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 700px) {
+    .about {
+      margin-top: 100px;
+    }
+
+    .about-section {
+      padding: 20px;
+    }
+
+    .cert-list img {
+      height: 220px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .cert-item img {
+      height: 220px;
+    }
+  }

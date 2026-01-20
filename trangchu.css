@@ -1,0 +1,355 @@
+#detail-desc {
+  line-height: 1.7;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+#detail-desc strong {
+  font-size: 18px;
+  color: #d62828;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;   /* 👈 CHỮ TRÊN – CARD DƯỚI */
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  padding: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;          /* đề phòng màn nhỏ */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;       /* xếp H1/H2 + P từ trên xuống */
+  align-items: center;
+  gap: 4px;                    /* khoảng cách giữa H1/H2 và P */
+  width: 100%;
+}
+
+.card {
+  width: 90%;
+  max-width: 400px;
+  min-height: 250px;
+  height: auto;          /* 👈 cho card giãn */
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+ 
+  cursor: pointer; /* 👈 thêm cho rõ là click được */
+
+  opacity: 0;
+  transform: scale(0.9);
+
+  animation:
+    cardIn 0.8s ease-out var(--delay) forwards,
+    breathe 5s ease-in-out calc(var(--delay) + 0.8s) infinite;
+}
+
+.card-wrapper {
+  display: grid;
+  width: 100%;
+  max-width: 1200px;      /* 👈 khóa chiều rộng PC */
+  margin: 30px auto 0;
+  flex-direction: row;
+  gap: 30px;
+
+  /* MẶC ĐỊNH MOBILE: 2 CARD / DÒNG */
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+
+
+h1 {
+    font-size: clamp(20px, 2.5vw, 28px);  /* co giãn theo màn hình */
+  margin: 0;
+  text-align: center;
+  letter-spacing: 1px;
+ color: rgb(255, 8, 0); /* màu chữ */
+}
+.dauMocChau h2,
+.cafe h3,
+.hatdieu h4,
+.matong h5,
+.st25 h6,
+.nm584 h7 {
+  font-size: clamp(20px, 2vw, 22px);  /* co giãn theo màn hình */
+  margin: 0;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+  animation: colorChange 5s infinite linear;
+  transform: translateY(-10px); /* 👈 nhích lên trên */
+  margin-top: -20px;
+  line-height: 1.2;    /* 👈 gọn chữ */
+}
+
+/* delay cho từng card*/
+.delay-1      { --delay: 1s; }
+.delay-2      { --delay: 1.2s; }
+.delay-3      { --delay: 1.4s; }
+.delay-4      { --delay: 1.6s; }
+.delay-5      { --delay: 1.8s; }
+.delay-6      { --delay: 2s; }
+
+/* ===== DETAIL ===== */
+.hidden {
+  display: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+
+.product-detail {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 25px;
+  color: white;
+  animation: fadeIn 0.6s ease;
+  position: relative; /* hoặc bỏ hẳn */
+  z-index: 10;
+}
+/* ===== 2 THUMB TRONG CARD ===== */
+.thumbs {
+  margin-top: auto;        /* 👈 đẩy ảnh xuống đáy card */
+  position: absolute;
+  bottom: 2px;
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto; /* đẩy ảnh xuống đáy */
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+.thumbs img {
+  width: 45%;              /* 👈 2 hình chia đều */
+  max-width: 120px;        /* không quá to */
+  aspect-ratio: 1 / 1;     /* vuông đẹp */
+  object-fit: cover;       /* không méo */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+}
+.thumbs img:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+@media (min-width: 900px) {
+  .card-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.back-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+/* PHẦN THÔNG TIN */
+.product-info {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.product-info h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+}
+/* ===== GALLERY ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.gallery img,
+.gallery video {
+  width: 100%;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover,
+.gallery video:hover {
+  transform: scale(1.05);
+}
+
+/* ===== POPUP ===== */
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content img,
+.popup-content video {
+  max-width: 92vw;
+  max-height: 92vh;
+}
+
+.popup .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 34px;
+  color: white;
+  cursor: pointer;
+}
+
+/* BOX MUA */
+.buy-box {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  padding: 12px 14px;
+  border-radius: 14px;
+
+  width: fit-content;     /* ✅ co theo nội dung */
+  max-width: 90%;
+  margin: 0 auto 20px;    /* ✅ canh giữa */
+
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* DÒNG 1 */
+.buy-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+   justify-content: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.field label {
+  margin-bottom: 4px;
+  opacity: 0.85;
+}
+
+.field select,
+.field input {
+  padding: 5px 6px;
+  border-radius: 6px;
+  font-size: 13px;
+  border: none;
+  outline: none;
+}
+
+/* SỐ LƯỢNG */
+.qty {
+  display: flex;
+  align-items: center;
+}
+
+.qty button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: #33fffc;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.qty input {
+  width: 60px;
+  text-align: center;
+}
+
+/* DÒNG 2 */
+.buy-total {
+  margin: 10px 0;
+  font-size: 15px;
+  text-align: center;
+  color: rgb(43, 15, 206);
+}
+
+/* DÒNG 3 */
+.buy-actions {
+  display: flex;
+  justify-content: center;   /* 👈 canh giữa ngang */
+  align-items: center;       /* 👈 canh giữa dọc */
+  gap: 10px;
+}
+.buy-btn,
+.cancel-btn {
+  min-width: 110px;          /* 👈 cùng độ rộng */
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+
+  display: flex;
+  justify-content: center;   /* 👈 chữ giữa nút */
+  align-items: center;
+}
+.buy-btn {
+  background: #5cf305b2;
+  color: white;
+}
+
+.cancel-btn {
+  background: #ff4d4d;
+  color: white;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .detail-header {
+    flex-direction: column;
+  }
+
+  .buy-box {
+    width: 100%;
+  }
+}
+
+/* responsive cho mobile */
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;     /* 👈 DỌC */
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 320px;
+    height: auto;          /* 👈 cho card giãn */
+  }
+}
